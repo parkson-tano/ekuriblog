@@ -143,4 +143,5 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 CSRF_TRUSTED_ORIGINS = [
     'https://www.ekurisblog.com/'
+    'https://www.ekurisblog.com'
 ]
