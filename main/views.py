@@ -113,5 +113,6 @@ class AdminPostListView(ListView):
 class AdminPostUpdateView(UpdateView):
     template_name = 'admin/create.html'
     model = Post
+    success_url = reverse_lazy('main:list_post')
     fields = ['author', 'category',
               'title', 'image_1', 'excerpt', 'content', 'status']
