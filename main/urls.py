@@ -11,5 +11,6 @@ urlpatterns = [
     path('admins/<int:pk>/delete/',
          AdminPostDeleteView.as_view(), name='delete_post'),
     path('adminedit/<int:pk>/', AdminPostUpdateView.as_view(), name='edit_post'),
+    path('search/', SearchView.as_view(), name = 'search'),
     path('admins/post', AdminPostListView.as_view(), name='list_post'),
 ]
