@@ -80,7 +80,6 @@
         <!-- ======= Search Form ======= -->
         <div class="search-form-wrap js-search-form-wrap">
           <form action="{% url 'main:search' %}" class="search-form">
-            {% csrf_token %}
             <span class="icon bi-search"></span>
             <input type="text" name='keyword' placeholder="Search" class="form-control">
             <button type="submit">
