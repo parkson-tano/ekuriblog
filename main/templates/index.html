@@ -1,0 +1,244 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load social_share %}
+{% block title %}
+EkurisBlog
+{% endblock title %}
+
+{% block content %}
+<!-- ======= Hero Slider Section ======= -->
+<section id="hero-slider" class="hero-slider">
+	<div class="container-md" data-aos="fade-in">
+		<div class="row">
+			<div class="col-12">
+				<div class="swiper sliderFeaturedPosts">
+					<div class="swiper-wrapper">
+						
+						{% for po in post  %}
+							<div class="swiper-slide">
+								<a href="{% url 'main:post' po.slug %}" class="img-bg d-flex align-items-end"
+									style="background-image: url({{po.image_1.url}});">
+									<div class="img-bg-inner">
+										<h2>
+											{{po.title}}
+										</h2>
+										<p>
+											{{po.excerpt}}
+										</p>
+									</div>
+								</a>
+							</div>
+						{% endfor %}					
+					</div>
+					<div class="custom-swiper-button-next">
+						<span class="bi-chevron-right"></span>
+					</div>
+					<div class="custom-swiper-button-prev">
+						<span class="bi-chevron-left"></span>
+					</div>
+
+					<div class="swiper-pagination"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section><!-- End Hero Slider Section -->
+
+<!-- ======= Post Grid Section ======= -->
+<section id="posts" class="posts">
+	<div class="container" data-aos="fade-up">
+		<div class="row g-5">
+			<div class="col-lg-4">
+				<div class="post-entry-1 lg">
+					<a href="{% url 'main:post' first.slug %}"><img src="{{first.image_1.url}}" alt="{{po.title}}" class="img-fluid"></a>
+					<div class="post-meta"><span class="date">{{first.category}}</span> <span
+							class="mx-1">&bullet;</span> <span>{{first.date_created|date}}</span></div>
+					<h2><a href="{% url 'main:post' first.slug %}">{{first.title}}</a></h2>
+					<p class="mb-4 d-block">
+						{{first.excerpt}}
+					</p>
+
+					<div class="d-flex align-items-center author">
+						<div class="name">
+							<h3 class="m-0 p-0">{{first.author}}</h3>
+						</div>
+					</div>
+				</div>
+				<div class="post-entry-1 lg">
+					<a href="{% url 'main:post' last.slug %}"><img src="{{last.image_1.url}}" alt="{{po.title}}" class="img-fluid"></a>
+					<div class="post-meta"><span class="date">{{first.category}}</span> <span class="mx-1">&bullet;</span>
+						<span>{{first.date_created|date}}</span></div>
+					<h2><a href="{% url 'main:post' last.slug %">{{first.title}}</a></h2>
+					<p class="mb-4 d-block">
+						{{first.excerpt}}
+					</p>
+				
+					<div class="d-flex align-items-center author">
+						<div class="name">
+							<h3 class="m-0 p-0">{{first.author}}</h3>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="col-lg-8">
+				<div class="row g-5">
+					<div class="col-lg-4 border-start custom-border">
+
+						{% for po in post %}
+						<div class="post-entry-1">
+							<a href="{% url 'main:post' po.slug %}"><img src="{{po.image_1.url}}" alt="{{po.title}}"
+									class="img-fluid h-50"></a>
+							<div class="post-meta"><span class="date">{{po.category}}</span> <span
+									class="mx-1">&bullet;</span> <span>
+									{{po.date_created|date}}
+								</span></div>
+							<h2><a href="{% url 'main:post' po.slug %}">{{po.title}}</a></h2>
+						</div>
+						{% endfor %}
+					</div>
+					<div class="col-lg-4 border-start custom-border">
+
+						{% for po in post2 %}
+						<div class="post-entry-1">
+							<a href="{% url 'main:post' po.slug %}"><img src="{{po.image_1.url}}" alt="{{po.title}}"
+									class="img-fluid"></a>
+							<div class="post-meta"><span class="date">{{po.category}}</span> <span
+									class="mx-1">&bullet;</span> <span>
+									{{po.date_created|date}}
+								</span></div>
+							<h2><a href="{% url 'main:post' po.slug %}">{{po.title}}</a></h2>
+						</div>
+						{% endfor %}
+
+
+					</div>
+
+					<!-- Trending Section -->
+					<div class="col-lg-4">
+
+						<div class="trending">
+							<h3>Trending</h3>
+							<ul class="trending-post">
+								{% for po in trend %}
+								<li>
+									<a href="{% url 'main:post' po.slug %}">
+										<span class="number">{{forloop.counter}}</span>
+										<h3>{{po.title}}</h3>
+										<span class="author">{{po.author}}</span>
+									</a>
+								</li>
+								{% endfor %}
+							</ul>
+						</div>
+					</div> <!-- End Trending Section -->
+				</div>
+			</div>
+		</div> <!-- End .row -->
+	</div>
+</section>
+
+<!-- ======= Category Section ======= -->
+
+{% for cat in all_categories %}
+
+{% if cat.post_set.all.count > 0 %}
+	
+<section class="category-section">
+	<div class="container" data-aos="fade-up">
+
+		<div class="section-header d-flex justify-content-between align-items-center mb-5">
+			<h2>{{cat.name}}</h2>
+			<div><a href="{% url 'main:category' cat.slug %}" class="more">See All {{cat.name}}</a></div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-9">
+				<div class="row">
+				{% for po in cat.post_set.all %}
+
+				{% if forloop.first %}
+				<div class="col-12">
+				<div class="d-lg-flex post-entry-2">
+					<a href="{% url 'main:post' po.slug %}" class="me-4 thumbnail mb-4 mb-lg-0 d-inline-block">
+						<img src="{{po.image_1.url}}" alt="{{po.title}}" class="img-fluid">
+					</a>
+					<div>
+						<div class="post-meta"><span class="date">{{po.category}}</span> <span
+								class="mx-1">&bullet;</span>
+							<span>Jul 5th '22</span>
+						</div>
+						<h3><a href="{% url 'main:post' po.slug %}">
+								{{po.title}}
+							</a></h3>
+						<p>
+							{{po.excerpt}}
+						</p>
+						<div class="d-flex align-items-center author">
+							<!-- <div class="photo"><img src="assets/img/person-2.jpg" alt="" class="img-fluid"></div> -->
+							<div class="name">
+								<h3 class="m-0 p-0">
+									{{po.author}}
+								</h3>
+							</div>
+						</div>
+					</div>
+				</div>	
+				</div>
+				
+				{% else %}
+		
+					<div class="col-lg-4">
+						<div class="post-entry-1 border-bottom">
+							<a href="{% url 'main:post' po.slug %}"><img src="{{po.image_1.url}}" alt="{{po.title}}" class="img-fluid"></a>
+							<div class="post-meta"><span class="date">{{po.category}}</span> <span
+									class="mx-1">&bullet;</span>
+								<span>{{po.date_created|date}}</span>
+							</div>
+							<h2 class="mb-2"><a href="{% url 'main:post' po.slug %}">
+								{{po.title}}	
+							</a></h2>
+							<span class="author mb-3 d-block">
+								{{po.author}}
+							</span>
+							<p class="mb-4 d-block">
+								{{po.excerpt}}
+							</p>
+						</div>
+					</div>
+				{% endif %}
+				{% endfor %}	
+				</div>
+				
+
+			</div>
+
+			<div class="col-md-3">
+				{% for po in cat.post_set.all %}
+			<div class="post-entry-1 border-bottom">
+								<div class="post-meta"><span class="date">{{po.category}}</span> <span class="mx-1">&bullet;</span>
+									<span>{{po.date_created|date}}</span>
+								</div>
+								<h2 class="mb-2"><a href="{% url 'main:post' po.slug %}">
+									{{po.title}}
+								</a></h2>
+								<span class="author mb-3 d-block">
+									{{po.author}}
+								</span>
+							</div>
+				{% endfor %}
+
+				
+
+			</div>
+		</div>
+	</div>
+</section>	
+{% endif %}
+
+{% endfor %}
+
+<!-- End Culture Category Section -->
+
+{% endblock content %}

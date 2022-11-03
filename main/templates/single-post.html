@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load social_share %}
+{% load static %}
+{% block title %}
+{{post.title|slice:25}}
+{% endblock title %}
+{% block content %}
+    <section class="single-post-content">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-9 post-content" data-aos="fade-up">
+            <i class="fa fa-share" aria-hidden="true"></i>
+
+            <!-- ======= Single Post Content ======= -->
+            <div class="single-post">
+              <div class="post-meta"><span class="date">{{post.category}}</span> <span class="mx-1">&bullet;</span> <span>{{post.date_created}}</span></div>
+              <h1 class="mb-5">{{post.title}}</h1>
+ 
+              {{post.content | safe}}
+     
+            </div><!-- End Single Post Content -->
+
+
+          </div>
+         {% include 'sidebar.html' %}
+        </div>
+      </div>
+    </section>
+
+{% endblock content %}
