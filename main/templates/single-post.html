@@ -9,12 +9,18 @@
       <div class="container">
         <div class="row">
           <div class="col-md-9 post-content" data-aos="fade-up">
-            <i class="fa fa-share" aria-hidden="true"></i>
+            
 
             <!-- ======= Single Post Content ======= -->
             <div class="single-post">
               <div class="post-meta"><span class="date">{{post.category}}</span> <span class="mx-1">&bullet;</span> <span>{{post.date_created}}</span></div>
               <h1 class="mb-5">{{post.title}}</h1>
+              <figure class="my-4">
+                <img src="{{post.image_1.url}}" alt="" class="img-fluid">
+                <figcaption>
+                  {{post.title}
+                </figcaption>
+              </figure>
  
               {{post.content | safe}}
      

@@ -4,8 +4,7 @@ from django.db.models import Q
 def category_renderer(request):
     return {
         'all_categories': Category.objects.all(),
-        'latest':  Post.objects.filter(
-            status='published').order_by('date_created')[:5],
+        'latest': Post.objects.all().order_by('date_created')[:5],
         'popular':  Post.objects.filter(
             status='published').order_by('view_count')[:7],
         'trend' : Post.objects.filter(

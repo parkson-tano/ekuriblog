@@ -17,6 +17,7 @@
 
 body {
   color: rgba(var(--color-primary-rgb), 1);
+  background-color: coral;
 }
 
 a {
