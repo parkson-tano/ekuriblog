@@ -34,15 +34,6 @@ class Category(models.Model):
         return self.name
 
 
-class SubCategory(models.Model):
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    slug = AutoSlugField(populate_from='name')
-    image = models.ImageField(upload_to='subcat_img', blank=True, null=True)
-    name = models.CharField(max_length=200)
-
-    def __str__(self):
-        return self.name
-
 
 class Post(models.Model):
 
@@ -53,7 +44,7 @@ class Post(models.Model):
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='blog_posts')
     category = models.ForeignKey(
-        Category, on_delete=models.PROTECT, blank=True, null=True)
+        Category, on_delete=models.CASCADE, blank=True, null=True)
     title = models.CharField(max_length=500)
     slug = AutoSlugField(populate_from='title')
     image_1 = models.ImageField(upload_to='post_image', null=True)

@@ -1,11 +1,12 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Post, Admin
 from django.views.generic import TemplateView, DetailView, CreateView, DeleteView, UpdateView, ListView, FormView, View
-from .models import Post, Category, SubCategory, Comment
-from .forms import CommentForm, PostForm, AdminLoginForm, ContactForm
+from .models import Post, Category, Comment
+from .forms import AuthenticationForm, CommentForm, PostForm, ContactForm
 from django.urls import reverse_lazy
 from django.core.paginator import Paginator
 from django.db.models import Q
+from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 # Create your views here
@@ -90,13 +91,27 @@ class SearchView(TemplateView):
 class AdminPostCreateView(CreateView):
     template_name = 'admin/create.html'
     model = Post
-    fields = ['author', 'category',
+    fields = ['category',
               'title', 'image_1', 'excerpt', 'content', 'status']
     success_url = reverse_lazy('main:list_post')
+
+    def dispatch(self, request, *args, **kwargs):
+        if request.user.is_authenticated:
+            pass
+        else:
+            return redirect('/accounts/login/?next=/admins/create/')
+
+        return super().dispatch(request, *args, **kwargs)
 
     def get_queryset(self):
         author = self.request.user
         return super().get_queryset()
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        messages.success(self.request, "Successful")
+        form.save()
+        return super().form_valid(form)
 
 
 class AdminPostDeleteView(DeleteView):
@@ -114,5 +129,20 @@ class AdminPostUpdateView(UpdateView):
     template_name = 'admin/create.html'
     model = Post
     success_url = reverse_lazy('main:list_post')
-    fields = ['author', 'category',
+    fields = ['category',
               'title', 'image_1', 'excerpt', 'content', 'status']
+
+    def dispatch(self, request, *args, **kwargs):
+        if request.user.is_authenticated:
+            pass
+        else:
+            return redirect('/accounts/login/?next=/admins/post/')
+
+        return super().dispatch(request, *args, **kwargs)
+
+class AdminLogoutView(View):
+	
+	def get(self, request):
+		logout(request)
+		return redirect('ecommerceapp:adminhome')
+

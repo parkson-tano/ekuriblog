@@ -38,7 +38,7 @@ class PostForm(forms.ModelForm):
         fields = "__all__"
 
 
-class AdminLoginForm(forms.Form):
+class AuthenticationForm(forms.Form):
 	username = forms.CharField(widget=forms.TextInput())
 	password = forms.CharField(widget=forms.PasswordInput())
 

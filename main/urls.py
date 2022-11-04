@@ -13,4 +13,5 @@ urlpatterns = [
     path('adminedit/<int:pk>/', AdminPostUpdateView.as_view(), name='edit_post'),
     path('search/', SearchView.as_view(), name = 'search'),
     path('admins/post', AdminPostListView.as_view(), name='list_post'),
+
 ]

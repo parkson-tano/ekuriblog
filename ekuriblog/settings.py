@@ -155,3 +155,6 @@ CSRF_TRUSTED_ORIGINS = [
     'https://www.ekurisblog.com/'
     'https://www.ekurisblog.com'
 ]
+
+LOGIN_REDIRECT_URL = "/admins/post"
+LOGOUT_REDIRECT_URL = "/accounts/login/"

@@ -60,7 +60,7 @@ EkurisBlog
 
 					<div class="d-flex align-items-center author">
 						<div class="name">
-							<h3 class="m-0 p-0">{{first.author}}</h3>
+							<h3 class="m-0 p-0">{{first.author.first_name}}</h3>
 						</div>
 					</div>
 				</div>
@@ -75,7 +75,7 @@ EkurisBlog
 				
 					<div class="d-flex align-items-center author">
 						<div class="name">
-							<h3 class="m-0 p-0">{{first.author}}</h3>
+							<h3 class="m-0 p-0">{{first.author.first_name}}</h3>
 						</div>
 					</div>
 				</div>
@@ -126,7 +126,7 @@ EkurisBlog
 									<a href="{% url 'main:post' po.slug %}">
 										<span class="number">{{forloop.counter}}</span>
 										<h3>{{po.title}}</h3>
-										<span class="author">{{po.author}}</span>
+										<span class="author">{{po.author.first_name}}</span>
 									</a>
 								</li>
 								{% endfor %}
@@ -179,7 +179,7 @@ EkurisBlog
 							<!-- <div class="photo"><img src="assets/img/person-2.jpg" alt="" class="img-fluid"></div> -->
 							<div class="name">
 								<h3 class="m-0 p-0">
-									{{po.author}}
+									{{po.author.first_name}}
 								</h3>
 							</div>
 						</div>
@@ -200,7 +200,7 @@ EkurisBlog
 								{{po.title}}	
 							</a></h2>
 							<span class="author mb-3 d-block">
-								{{po.author}}
+								{{po.author.first_name}}
 							</span>
 							<p class="mb-4 d-block">
 								{{po.excerpt}}
@@ -224,7 +224,7 @@ EkurisBlog
 									{{po.title}}
 								</a></h2>
 								<span class="author mb-3 d-block">
-									{{po.author}}
+									{{po.author.first_name}}
 								</span>
 							</div>
 				{% endfor %}

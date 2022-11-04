@@ -26,7 +26,9 @@
                    <div class="post-entry-1 border-bottom">
                     <div class="post-meta"><span class="date">{{po.category}}</span> <span class="mx-1">&bullet;</span> <span>{{po.date_created|date}}</span></div>
                     <h2 class="mb-2"><a href="#">{{po.excerpt}}</a></h2>
-                    <span class="author mb-3 d-block">Jenny Wilson</span>
+                    <span class="author mb-3 d-block">
+                      {{po.author.first_name}}
+                    </span>
                   </div>  
                   {% endfor %}
                     
@@ -39,7 +41,7 @@
                    <div class="post-entry-1 border-bottom">
                     <div class="post-meta"><span class="date">{{po.category}}</span> <span class="mx-1">&bullet;</span> <span>{{po.date_created|date}}</span></div>
                     <h2 class="mb-2"><a href="#">{{po.excerpt}}</a></h2>
-                    <span class="author mb-3 d-block">Jenny Wilson</span>
+                    <span class="author mb-3 d-block">{{po.author.first_name}}</span>
                   </div>  
                   {% endfor %}
                 </div> <!-- End Trending -->
@@ -51,7 +53,9 @@
                    <div class="post-entry-1 border-bottom">
                     <div class="post-meta"><span class="date">{{po.category}}</span> <span class="mx-1">&bullet;</span> <span>{{po.date_created|date}}</span></div>
                     <h2 class="mb-2"><a href="#">{{po.excerpt}}</a></h2>
-                    <span class="author mb-3 d-block">Jenny Wilson</span>
+                    <span class="author mb-3 d-block">
+                      {{po.author.first_name}}
+                    </span>
                   </div>  
                   {% endfor %}
                 </div> <!-- End Latest -->

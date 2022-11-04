@@ -13,6 +13,18 @@
 
             <!-- ======= Single Post Content ======= -->
             <div class="single-post">
+              <button class="btn btn-warning">
+{% post_to_facebook object_or_url "Post to Facebook!" %}
+              </button>
+              <button  class="btn btn-warning">{% post_to_whatsapp  object_or_url "Share To Whatsapp" %}</button>
+              <button  class="btn btn-warning">{% post_to_linkedin  object_or_url "Share To Reddit" %}</button>
+              <button  class="btn btn-warning">{% post_to_twitter  object_or_url  %}</button>
+              <button  class="btn btn-warning">{% post_to_telegram "Gist: {{post.title}}" object_or_url %}</button>
+
+
+
+
+
               <div class="post-meta"><span class="date">{{post.category}}</span> <span class="mx-1">&bullet;</span> <span>{{post.date_created}}</span></div>
               <h1 class="mb-5">{{post.title}}</h1>
               <figure class="my-4">
@@ -23,7 +35,13 @@
               </figure>
  
               {{post.content | safe}}
-     
+                  <button class="btn btn-warning">
+                    {% post_to_facebook object_or_url "Post to Facebook!" %}
+                  </button>
+                  <button class="btn btn-warning">{% post_to_whatsapp object_or_url "Share To Whatsapp" %}</button>
+                  <button class="btn btn-warning">{% post_to_linkedin object_or_url "Share To Reddit" %}</button>
+                  <button class="btn btn-warning">{% post_to_twitter object_or_url %}</button>
+                  <button class="btn btn-warning">{% post_to_telegram "Gist: {{post.title}}" object_or_url %}</button>
             </div><!-- End Single Post Content -->
 
 

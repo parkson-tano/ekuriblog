@@ -25,20 +25,27 @@
                     <li class="nav-item active">
                         <a class="nav-link" href="" aria-current="page">Home</a>
                     </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="{% url 'main:list_post' %}" aria-current="page">All Post</a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="{% url 'main:index' %}" target="_blank">Go to Site</a>
-                    </li>
-                    {% comment %} {% if request.user.is_authenticated %}
+                    {% if request.user.is_authenticated %}
                     <li class="nav-item active">
                         You logged in as {{ request.user }}
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="{% url 'ecommerceapp:adminlogout' %}">Logout</a>
+                        <a class="nav-link" href="{% url 'main:list_post' %}" aria-current="page">All Post</a>
                     </li>
-                    {% endif %} {% endcomment %}
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'login' %}">Login</a>
+                    </li>
+                    {% endif %}
+                    
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'main:index' %}" target="_blank">Go to Site</a>
+                    </li>
+                    
+                    
                 </ul>
             </div>
         </div>
