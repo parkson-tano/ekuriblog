@@ -153,8 +153,13 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 CSRF_TRUSTED_ORIGINS = [
     'https://www.ekurisblog.com/'
-    'https://www.ekurisblog.com'
+    'https://www.ekurisblog.com',
+    'https://*.ekurisblog.com',
+    'https://*.127.0.0.1',
+    'https://ekurisblog.com',
 ]
 
 LOGIN_REDIRECT_URL = "/admins/post"
 LOGOUT_REDIRECT_URL = "/accounts/login/"
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')

@@ -9,7 +9,7 @@ class PostAdmin(admin.ModelAdmin):
 
 
 class CommentAdmin(admin.ModelAdmin):
-    list_display = ('user', 'post')
+    list_display = ( 'post',)
 
 
 admin.site.register(Post, PostAdmin)
