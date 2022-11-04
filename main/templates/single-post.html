@@ -5,54 +5,47 @@
 {{post.title|slice:25}}
 {% endblock title %}
 {% block content %}
-    <section class="single-post-content">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-9 post-content" data-aos="fade-up">
-            
-
-            <!-- ======= Single Post Content ======= -->
-            <div class="single-post">
-              <button class="btn btn-warning">
-{% post_to_facebook object_or_url "Post to Facebook!" %}
-              </button>
-              <button  class="btn btn-warning">{% post_to_whatsapp  object_or_url "Share To Whatsapp" %}</button>
-              <button  class="btn btn-warning">{% post_to_linkedin  object_or_url "Share To Reddit" %}</button>
-              <button  class="btn btn-warning">{% post_to_twitter  object_or_url  %}</button>
-              <button  class="btn btn-warning">{% post_to_telegram "Gist: {{post.title}}" object_or_url %}</button>
+<section class="single-post-content">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9 post-content" data-aos="fade-up">
 
 
+        <!-- ======= Single Post Content ======= -->
+        <div class="single-post">
+
+          <button class="btn">{% post_to_facebook object_or_url "<i class='bi-facebook'></i>" %}</button>
+
+          <button class="btn">{% post_to_whatsapp object_or_url "<i class='bi-whatsapp'></i>" %}</button>
+          <button class="btn">{% post_to_linkedin object_or_url %}</button>
+          <button class="btn">{% post_to_telegram "Gist: {{post.title}}" object_or_url "<i class='bi-telegram'></i>" %}</button>
+          <div class="post-meta"><span class="date">{{post.category}}</span> <span class="mx-1">&bullet;</span>
+            <span>{{post.date_created}}</span></div>
+          <h1 class="mb-5">{{post.title}}</h1>
+          <figure class="my-4">
+            <img src="{{post.image_1.url}}" alt="" class="img-fluid">
+            <figcaption>
+              {{post.title}}
+            </figcaption>
+          </figure>
+          <h3>
+            {{post.excerpt}}
+          </h3>
+          <br>
+
+          {{post.content | safe}}
+          <button class="btn">{% post_to_facebook object_or_url "<i class='bi-facebook'></i>" %}</button>
+          
+          <button class="btn">{% post_to_whatsapp object_or_url "<i class='bi-whatsapp'></i>" %}</button>
+          <button class="btn">{% post_to_linkedin object_or_url %}</button>
+          <button class="btn">{% post_to_telegram "Gist: {{post.title}}" object_or_url "<i class='bi-telegram'></i>" %}</button>
+        </div><!-- End Single Post Content -->
 
 
-
-              <div class="post-meta"><span class="date">{{post.category}}</span> <span class="mx-1">&bullet;</span> <span>{{post.date_created}}</span></div>
-              <h1 class="mb-5">{{post.title}}</h1>
-              <figure class="my-4">
-                <img src="{{post.image_1.url}}" alt="" class="img-fluid">
-                <figcaption>
-                  {{post.title}}
-                </figcaption>
-              </figure>
-<h3>
-{{post.excerpt}}
-</h3>
-<br>
- 
-              {{post.content | safe}}
-                  <button class="btn btn-warning">
-                    {% post_to_facebook object_or_url "Post to Facebook!" %}
-                  </button>
-                  <button class="btn btn-warning">{% post_to_whatsapp object_or_url "Share To Whatsapp" %}</button>
-                  <button class="btn btn-warning">{% post_to_linkedin object_or_url "Share To Reddit" %}</button>
-                  <button class="btn btn-warning">{% post_to_twitter object_or_url %}</button>
-                  <button class="btn btn-warning">{% post_to_telegram "Gist: {{post.title}}" object_or_url %}</button>
-            </div><!-- End Single Post Content -->
-
-
-          </div>
-         {% include 'sidebar.html' %}
-        </div>
       </div>
-    </section>
+      {% include 'sidebar.html' %}
+    </div>
+  </div>
+</section>
 
 {% endblock content %}
