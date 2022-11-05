@@ -51,7 +51,7 @@ class Post(models.Model):
         Category, on_delete=models.CASCADE, blank=True, null=True)
     title = models.CharField(max_length=500)
     slug = AutoSlugField(populate_from='title')
-    image_1 = models.ImageField(upload_to='post_image', null=True)
+    image_1 = models.ImageField(null=True)
     excerpt = models.TextField(null=True, blank=True)
     content = RichTextField(null=True, blank=True)
     date_created = models.DateTimeField(auto_now_add=True)
