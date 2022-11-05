@@ -21,13 +21,10 @@
           <button class="btn">{% post_to_telegram "Gist: {{post.title}}" object_or_url "<i class='bi-telegram'></i>" %}</button>
           <div class="post-meta"><span class="date">{{post.category}}</span> <span class="mx-1">&bullet;</span>
             <span>{{post.date_created}}</span></div>
-          <h1 class="mb-5">{{post.title}}</h1>
-          <figure class="my-4">
-            <img src="{{post.image_1.url}}" alt="" class="img-fluid">
-            <figcaption>
-              {{post.title}}
-            </figcaption>
-          </figure>
+          <h1 class="mb-5 text-danger text-decoration-underline">{{post.title}}</h1>
+          <div class="mx-auto">
+            <img src="{{post.image_1.url}}" alt="{{post.title}}" class="img-fluid">
+     
           <h3>
             {{post.excerpt}}
           </h3>
@@ -39,6 +36,9 @@
           <button class="btn">{% post_to_whatsapp object_or_url "<i class='bi-whatsapp'></i>" %}</button>
           <button class="btn">{% post_to_linkedin object_or_url %}</button>
           <button class="btn">{% post_to_telegram "Gist: {{post.title}}" object_or_url "<i class='bi-telegram'></i>" %}</button>
+
+          </div>
+          
         </div><!-- End Single Post Content -->
 
 

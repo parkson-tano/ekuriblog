@@ -1,10 +1,14 @@
 from django.db import models
+import sys
 from django.contrib.auth.models import User
 from django.utils import timezone
 from autoslug import AutoSlugField
 from tinymce.models import HTMLField
 from ckeditor.fields import RichTextField
 from autoslug import AutoSlugField
+from PIL import Image
+from io import BytesIO
+from django.core.files import File
 # Create your models here.
 
 
@@ -61,6 +65,18 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
+    def save(self, *args, **kwargs):
+        new_image = self.reduce_image_size(self.image_1)
+        self.image_1 = new_image
+        super().save(*args, **kwargs)
+
+    def reduce_image_size(self, profile_pic):
+        print(profile_pic)
+        img = Image.open(profile_pic)
+        thumb_io = BytesIO()
+        img.save(thumb_io, 'jpeg', quality=50)
+        new_image = File(thumb_io, name=profile_pic.name)
+        return new_image
 
 class Comment(models.Model):
     name = models.CharField(max_length=150)
