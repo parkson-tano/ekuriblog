@@ -1,218 +1,189 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta charset="utf-8">
+    <title>NEWSROOM - Free Bootstrap Magazine Template</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
 
-  <title>
-    {% block title %}
-    {% endblock title %}
-  </title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+    <!-- Favicon -->
+    <link href="{% static 'img/favicon.ico' %} " rel="icon">
 
-  <!-- Favicons -->
-  {% static '' %}
-  <link href="{% static 'img/favicon.png' %}" rel="icon">
-  <link href="{% static 'img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">   
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=Inter:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap' %}" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
 
-  <!-- Vendor CSS Files -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-<!-- CSS only -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
-<link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+    <!-- Libraries Stylesheet -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <!-- Template Main CSS Files -->
-  <link href="{% static 'css/variables.css' %}" rel="stylesheet">
-  <link href="{% static 'css/main.css' %}" rel="stylesheet">
-
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{% static 'css/style.css' %} " rel="stylesheet">
 </head>
-<style>
-  @media screen and (max-width: 480px) {
-    .con > p > img {
-         width: 10%;
-    }
-}
-</style>
-<body style="background-color: #fae8ca;">
-   
-    <!-- ======= Header ======= -->
-  <header id="header" class="header d-flex align-items-center fixed-top" style="background-color: #fc7638;">
-    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
-      <a href="{% url 'main:index' %}" class="logo d-flex align-items-center">
-        <!-- <img src="{% static 'img/logo.png" alt=""> -->
-        <h2>Welcome to Ekuri's Blog</h2>
-      </a>
-
-      <nav id="navbar" class="navbar">
-        <ul>
-          <li><a href="{% url 'main:index' %}">Home</a></li>
-          <li class="dropdown"><a href="#"><span>Categories</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
-            <ul>
-              {% for cat in all_categories %}
-              <li><a href="{% url 'main:category' cat.slug %}">{{cat}}</a></li>
-              {% endfor %}
-            </ul>
-          </li>
-
-          <li><a href="{% url 'main:index' %}">About</a></li>
-          <li><a href="{% url 'main:index' %}">Contact</a></li>
-        </ul>
-      </nav><!-- .navbar -->
-
-      <div class="position-relative">
-        <a href='{{contactus.facebook}}' target="_blank" class="mx-2"><span class="bi-facebook"></span></a>
-        <a href="{{contactus.twitter}}" target="_blank" class="mx-2"><span class="bi-twitter"></span></a>
-        <a href="{{contactus.instagram}}" target="_blank" class="mx-2"><span class="bi-instagram"></span></a>
-        <a href="{{contactus.address}}" target="_blank" class="mx-2"><span class="bi-youtube"></span></a>
-        <a href="https://wa.me/{{contactus.whatsapp}}?text=Hello,%20.%20I%20am%20_______" target="_blank" class="mx-2"><span class="bi-whatsapp"></span></a>
-
-        <a href="#" class="mx-2 js-search-open"><span class="bi-search"></span></a>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-
-        <!-- ======= Search Form ======= -->
-        <div class="search-form-wrap js-search-form-wrap">
-          <form action="{% url 'main:search' %}" class="search-form">
-            <span class="icon bi-search"></span>
-            <input type="text" name='keyword' placeholder="Search" class="form-control">
-            <button type="submit">
-              Search
-            </button>
-            <button type='submit' class="btn js-search-close"><span class="bi-x"></span></button>
-          </form>
+<body>
+   <!-- Topbar Start -->
+    <div class="container-fluid">
+        <div class="row align-items-center bg-light px-lg-5">
+            <div class="col-12 col-md-8">
+                <div class="d-flex justify-content-between">
+                    <div class="bg-primary text-white text-center py-2" style="width: 100px;">Tranding</div>
+                    <div class="owl-carousel owl-carousel-1 tranding-carousel position-relative d-inline-flex align-items-center ml-3" style="width: calc(100% - 100px); padding-left: 90px;">
+                        <div class="text-truncate"><a class="text-secondary" href="">Labore sit justo amet eos sed, et sanctus dolor diam eos</a></div>
+                        <div class="text-truncate"><a class="text-secondary" href="">Gubergren elitr amet eirmod et lorem diam elitr, ut est erat Gubergren elitr amet eirmod et lorem diam elitr, ut est erat</a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 text-right d-none d-md-block">
+                Monday, January 01, 2045
+            </div>
         </div>
-        <!-- End Search Form -->
-
-      </div>
-
-    </div>
-
-  </header><!-- End Header -->
-
-  <main id="main">
-{% block content %}
-{% endblock content %}
-
-  </main><!-- End #main -->
-
-  <!-- ======= Footer ======= -->
-  <footer id="footer" class="footer">
-
-    <div class="footer-content">
-      <div class="container">
-
-        <div class="row g-5">
-          <div class="col-lg-4">
-            <h3 class="footer-heading">About Ekuri's Blog</h3>
-            <p>
-             Ekuri's Blog Brings to you latest Entertainment News and Celebrity Gists.
-            </p>
-            <p><a href="#" class="footer-link-more">Learn More</a></p>
-          </div>
-          <div class="col-6 col-lg-2">
-            <h3 class="footer-heading">Navigation</h3>
-            <ul class="footer-links list-unstyled">
-              <li><a href="{% url 'main:index' %}"><i class="bi bi-chevron-right"></i> Home</a></li>
-              <li><a href="#"><i class="bi bi-chevron-right"></i> All Post</a></li>
-              <li><a href="#"><i class="bi bi-chevron-right"></i> About us</a></li>
-              <li><a href="#"><i class="bi bi-chevron-right"></i> Contact</a></li>
-            </ul>
-          </div>
-          <div class="col-6 col-lg-2">
-            <h3 class="footer-heading">Categories</h3>
-            <ul class="footer-links list-unstyled">
-                {% for cat in all_categories %}
-                <li><a href="{% url 'main:category' cat.slug %}"><i class="bi bi-chevron-right"></i> {{cat.name}} </a></li>
-                {% endfor %}
-            </ul>
-          </div>
-
-          <div class="col-lg-4">
-            <h3 class="footer-heading">Recent Posts</h3>
-
-            <ul class="footer-links footer-blog-entry list-unstyled">
-              
-              {% for po in latest  %}
-                <li>
-                <a href="{% url 'main:post' po.slug %}" class="d-flex align-items-center">
-                  <img src="{{po.image_1.url}}" alt="{{po.title}}" class="img-fluid me-3">
-                  <div>
-                    <div class="post-meta d-block"><span class="date">
-                      {{po.category}}
-                    </span> <span class="mx-1">&bullet;</span> <span>{{po.date_created|date}}</span></div>
-                    <span>
-                      {{po.title}}
-                    </span>
-                  </div>
+        <div class="row align-items-center py-2 px-lg-5">
+            <div class="col-lg-4">
+                <a href="" class="navbar-brand d-none d-lg-block">
+                    <h1 class="m-0 display-5 text-uppercase"><span class="text-primary">News</span>Room</h1>
                 </a>
-              </li>
-              {% endfor %}
-
-            </ul>
-
-          </div>
+            </div>
+            <div class="col-lg-8 text-center text-lg-right">
+                <img class="img-fluid" src="img/ads-700x70.jpg" alt="">
+            </div>
         </div>
-      </div>
     </div>
+    <!-- Topbar End -->
 
-    <div class="footer-legal">
-      <div class="container">
 
-        <div class="row justify-content-between">
-          <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-            <div class="copyright">
-              © Copyright <strong><span>Ekuri's Blog</span></strong>. All Rights Reserved
+    <!-- Navbar Start -->
+    <div class="container-fluid p-0 mb-3">
+        <nav class="navbar navbar-expand-lg bg-light navbar-light py-2 py-lg-0 px-lg-5">
+            <a href="" class="navbar-brand d-block d-lg-none">
+                <h1 class="m-0 display-5 text-uppercase"><span class="text-primary">News</span>Room</h1>
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between px-0 px-lg-3" id="navbarCollapse">
+                <div class="navbar-nav mr-auto py-0">
+                    <a href="index.html" class="nav-item nav-link active">Home</a>
+                    <a href="category.html" class="nav-item nav-link">Categories</a>
+                    <a href="single.html" class="nav-item nav-link">Single News</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Dropdown</a>
+                        <div class="dropdown-menu rounded-0 m-0">
+                            <a href="#" class="dropdown-item">Menu item 1</a>
+                            <a href="#" class="dropdown-item">Menu item 2</a>
+                            <a href="#" class="dropdown-item">Menu item 3</a>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="nav-item nav-link">Contact</a>
+                </div>
+                <div class="input-group ml-auto" style="width: 100%; max-width: 300px;">
+                    <input type="text" class="form-control" placeholder="Keyword">
+                    <div class="input-group-append">
+                        <button class="input-group-text text-secondary"><i
+                                class="fa fa-search"></i></button>
+                    </div>
+                </div>
             </div>
+        </nav>
+    </div>
+    <!-- Navbar End -->
+  {% block content %}
+    
+  {% endblock content %}
+    
 
-            <div class="credits">
-              Designed by <a href="#">Parkson</a>
+    <!-- Footer Start -->
+    <div class="container-fluid bg-light pt-5 px-sm-3 px-md-5">
+        <div lass="row">
+            <div class="col-lg-3 col-md-6 mb-5">
+                <a href="index.html" class="navbar-brand">
+                    <h1 class="mb-2 mt-n2 display-5 text-uppercase"><span class="text-primary">News</span>Room</h1>
+                </a>
+                <p>Volup amet magna clita tempor. Tempor sea eos vero ipsum. Lorem lorem sit sed elitr sed kasd et</p>
+                <div class="d-flex justify-content-start mt-4">
+                    <a class="btn btn-outline-secondary text-center mr-2 px-0" style="width: 38px; height: 38px;" href="#"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-outline-secondary text-center mr-2 px-0" style="width: 38px; height: 38px;" href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-outline-secondary text-center mr-2 px-0" style="width: 38px; height: 38px;" href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-outline-secondary text-center mr-2 px-0" style="width: 38px; height: 38px;" href="#"><i class="fab fa-instagram"></i></a>
+                    <a class="btn btn-outline-secondary text-center mr-2 px-0" style="width: 38px; height: 38px;" href="#"><i class="fab fa-youtube"></i></a>
+                </div>
             </div>
-
-          </div>
-
-          <div class="col-md-6">
-            <div class="social-links mb-3 mb-lg-0 text-center text-md-end">
-<a href='{{contactus.facebook}}' target="_blank" class="mx-2"><span class="bi-facebook"></span></a>
-        <a href="{{contactus.twitter}}" target="_blank" class="mx-2"><span class="bi-twitter"></span></a>
-        <a href="{{contactus.instagram}}" target="_blank" class="mx-2"><span class="bi-instagram"></span></a>
-        <a href="{{contactus.address}}" target="_blank" class="mx-2"><span class="bi-youtube"></span></a>
-        <a href="https://wa.me/{{contactus.whatsapp}}?text=Hello,%20.%20I%20am%20_______" target="_blank" class="mx-2"><span class="bi-whatsapp"></span></a>
+            <div class="col-lg-3 col-md-6 mb-5">
+                <h4 class="font-weight-bold mb-4">Categories</h4>
+                <div class="d-flex flex-wrap m-n1">
+                    <a href="" class="btn btn-sm btn-outline-secondary m-1">Politics</a>
+                    <a href="" class="btn btn-sm btn-outline-secondary m-1">Business</a>
+                    <a href="" class="btn btn-sm btn-outline-secondary m-1">Corporate</a>
+                    <a href="" class="btn btn-sm btn-outline-secondary m-1">Sports</a>
+                    <a href="" class="btn btn-sm btn-outline-secondary m-1">Health</a>
+                    <a href="" class="btn btn-sm btn-outline-secondary m-1">Education</a>
+                    <a href="" class="btn btn-sm btn-outline-secondary m-1">Science</a>
+                    <a href="" class="btn btn-sm btn-outline-secondary m-1">Technology</a>
+                    <a href="" class="btn btn-sm btn-outline-secondary m-1">Foods</a>
+                    <a href="" class="btn btn-sm btn-outline-secondary m-1">Entertainment</a>
+                    <a href="" class="btn btn-sm btn-outline-secondary m-1">Travel</a>
+                    <a href="" class="btn btn-sm btn-outline-secondary m-1">Lifestyle</a>
+                </div>
             </div>
-
-          </div>
-
+            <div class="col-lg-3 col-md-6 mb-5">
+                <h4 class="font-weight-bold mb-4">Tags</h4>
+                <div class="d-flex flex-wrap m-n1">
+                    <a href="" class="btn btn-sm btn-outline-secondary m-1">Politics</a>
+                    <a href="" class="btn btn-sm btn-outline-secondary m-1">Business</a>
+                    <a href="" class="btn btn-sm btn-outline-secondary m-1">Corporate</a>
+                    <a href="" class="btn btn-sm btn-outline-secondary m-1">Sports</a>
+                    <a href="" class="btn btn-sm btn-outline-secondary m-1">Health</a>
+                    <a href="" class="btn btn-sm btn-outline-secondary m-1">Education</a>
+                    <a href="" class="btn btn-sm btn-outline-secondary m-1">Science</a>
+                    <a href="" class="btn btn-sm btn-outline-secondary m-1">Technology</a>
+                    <a href="" class="btn btn-sm btn-outline-secondary m-1">Foods</a>
+                    <a href="" class="btn btn-sm btn-outline-secondary m-1">Entertainment</a>
+                    <a href="" class="btn btn-sm btn-outline-secondary m-1">Travel</a>
+                    <a href="" class="btn btn-sm btn-outline-secondary m-1">Lifestyle</a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5">
+                <h4 class="font-weight-bold mb-4">Quick Links</h4>
+                <div class="d-flex flex-column justify-content-start">
+                    <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right text-dark mr-2"></i>About</a>
+                    <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right text-dark mr-2"></i>Advertise</a>
+                    <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right text-dark mr-2"></i>Privacy & policy</a>
+                    <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right text-dark mr-2"></i>Terms & conditions</a>
+                    <a class="text-secondary" href="#"><i class="fa fa-angle-right text-dark mr-2"></i>Contact</a>
+                </div>
+            </div>
         </div>
-
-      </div>
     </div>
+    <div class="container-fluid py-4 px-sm-3 px-md-5">
+        <p class="m-0 text-center">
+            &copy; <a class="font-weight-bold" href="#">Your Site Name</a>. All Rights Reserved. 
+			
+			<!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+			Designed by <a class="font-weight-bold" href="https://htmlcodex.com">HTML Codex</a>
+        </p>
+    </div>
+    <!-- Footer End -->
 
-  </footer>
 
-  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-dark back-to-top"><i class="fa fa-angle-up"></i></a>
 
-  <!-- Vendor JS Files -->
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
-  <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
 
-  <!-- Template Main JS File -->
-  <script src="{% static 'js/main.js' %}"></script>
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'lib/easing/easing.min.js' %} "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+    <!-- Contact Javascript File -->
+
+    <!-- Template Javascript -->
+    <script src="{% static 'js/main.js' %} "></script>
+</body>
 
 </html>
