@@ -17,16 +17,14 @@ class HomeView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         first = Post.objects.last()
+        all = Post.objects.all().order_by('date_created')[:10]
         post = Post.objects.filter(
-            status='published').order_by('view_count')[2:5]
-        post2 = Post.objects.filter(
-            status='published').order_by('view_count')[4:8]
+            status='published').order_by('view_count')[:10]
         last = Post.objects.first()
         context['first'] = first
-
+        context['all'] =all
         context['last'] = last
         context["post"] = post 
-        context['post2'] = post2
         return context
 
 
