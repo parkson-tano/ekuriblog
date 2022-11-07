@@ -17,14 +17,24 @@ class HomeView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         first = Post.objects.last()
-        all = Post.objects.all().order_by('date_created')[:10]
+        all = Post.objects.filter(
+            status='published').order_by('date_created')[:10]
         post = Post.objects.filter(
             status='published').order_by('view_count')[:10]
+        latest_cele = Post.objects.filter(Q(category = 5) & Q(
+            status='published')).order_by('-date_created')
+        latest_enter = Post.objects.filter(Q(category=1) & Q(
+            status='published')).order_by('-date_created')
         last = Post.objects.first()
         context['first'] = first
         context['all'] =all
         context['last'] = last
         context["post"] = post 
+        context['cele'] = latest_cele
+        context['enter'] = latest_enter
+        context['cele_1'] = first
+        context['enter_1'] = last
+
         return context
 
 
@@ -72,8 +82,10 @@ class CategoryDetailView(TemplateView):
         allcategory = Category.objects.all()
         category = Category.objects.get(slug=url_slug)
         post = Post.objects.filter(Q(category=category) & Q(status = 'published'))
+        top = Post.objects.filter(Q(category=category) & Q(status='published')).order_by('view_count')[:4]
         context['post'] = post
         context['cat'] = category
+        context['top'] = top
         return context
 
 class SearchView(TemplateView):

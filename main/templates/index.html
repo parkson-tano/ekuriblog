@@ -106,12 +106,12 @@
                     </h3>
                 </div>
                 <div class="owl-carousel owl-carousel-3 carousel-item-2 position-relative">
-                    {% for po in cat_set.all %}
+                    {% for po in cat.post_set.all %}
                     <div class="position-relative">
                         <img class="img-fluid w-100" src="{{po.image_1.url}}" style="object-fit: cover;">
                         <div class="overlay position-relative bg-light">
                             <div class="mb-2" style="font-size: 13px;">
-                                <a href="">
+                                <a href="{% url 'main:category' po.category.slug %}">
                                     {{po.category}}
                                 </a>
                                 <span class="px-1">/</span>
@@ -160,7 +160,7 @@
                                 style="object-fit: cover;">
                             <div class="overlay position-relative bg-light">
                                 <div class="mb-2" style="font-size: 14px;">
-                                    <a href="">{{first.category}}</a>
+                                    <a href="{% url 'main:category' first.category.slug %}">{{first.category}}</a>
                                     <span class="px-1">/</span>
                                     <span>
                                         {{first.date_created|date}}
@@ -180,7 +180,7 @@
                                 <img src="{{po.image_1.url}}" style="width: 100px; height: 100px; object-fit: cover;">
                                 <div class="w-100 d-flex flex-column justify-content-center bg-light px-3" style="height: 100px;">
                                     <div class="mb-1" style="font-size: 13px;">
-                                        <a href="">
+                                        <a href="{% url 'main:category' po.category.slug %}">
                                             {{po.category}}
                                         </a>
                                         <span class="px-1">/</span>
@@ -200,7 +200,7 @@
                         <img class="img-fluid w-100" src="{{last.image_1.url}}" style="object-fit: cover;">
                         <div class="overlay position-relative bg-light">
                             <div class="mb-2" style="font-size: 14px;">
-                                <a href="">{{last.category}}</a>
+                                <a href="{% url 'main:category' last.category.slug %}">{{last.category}}</a>
                                 <span class="px-1">/</span>
                                 <span>
                                     {{last.date_created|date}}
@@ -219,7 +219,7 @@
                             <img src="{{po.image_1.url}}" style="width: 100px; height: 100px; object-fit: cover;">
                             <div class="w-100 d-flex flex-column justify-content-center bg-light px-3" style="height: 100px;">
                                 <div class="mb-1" style="font-size: 13px;">
-                                    <a href="">
+                                    <a href="{% url 'main:category' po.category.slug %}">
                                         {{po.category}}
                                     </a>
                                     <span class="px-1">/</span>
@@ -245,88 +245,84 @@
                         </div>
                     </div>
                     <div class="col-lg-6">
+                        
+                        
                         <div class="position-relative mb-3">
-                            <img class="img-fluid w-100" src="{% static 'img/news-500x280-5.jpg ' %}"
-                                style="object-fit: cover;">
+                            <img class="img-fluid w-100" src="{{cele_1.image_1.url}}" style="object-fit: cover;">
                             <div class="overlay position-relative bg-light">
                                 <div class="mb-2" style="font-size: 14px;">
-                                    <a href="">Technology</a>
+                                    <a href="{% url 'main:category' cele_1.category.slug %}">
+                                        {{cele_1.category}}
+                                    </a>
                                     <span class="px-1">/</span>
-                                    <span>January 01, 2045</span>
+                                    <span>
+                                        {{cele_1.date_created|date}}
+                                    </span>
                                 </div>
-                                <a class="h4" href="">Est stet amet ipsum stet clita rebum duo</a>
-                                <p class="m-0">Rebum dolore duo et vero ipsum clita, est ea sed duo diam ipsum, clita at
-                                    justo, lorem amet vero eos sed sit...</p>
+                                <a class="h4" href="">
+                                    {{cele_1.title}}
+                                </a>
+                                <p class="m-0">
+                                    {{cele_1.excerpt|slice:120}}
+                                </p>
                             </div>
                         </div>
+                   
+                        
+                        {% for po in enter %}
                         <div class="d-flex mb-3">
-                            <img src="{% static 'img/news-100x100-5.jpg ' %}"
-                                style="width: 100px; height: 100px; object-fit: cover;">
-                            <div class="w-100 d-flex flex-column justify-content-center bg-light px-3"
-                                style="height: 100px;">
+                            <img src="{{po.image_1.url}}" style="width: 100px; height: 100px; object-fit: cover;">
+                            <div class="w-100 d-flex flex-column justify-content-center bg-light px-3" style="height: 100px;">
                                 <div class="mb-1" style="font-size: 13px;">
-                                    <a href="">Technology</a>
+                                    <a href="{% url 'main:category' po.category.slug %}">
+                                        {{po.category}}
+                                    </a>
                                     <span class="px-1">/</span>
-                                    <span>January 01, 2045</span>
+                                    <span>{{po.date_created|date}}</span>
                                 </div>
-                                <a class="h6 m-0" href="">Lorem ipsum dolor sit amet consec adipis elit</a>
+                                <a class="h6 m-0" href="">{{po.title}}</a>
                             </div>
                         </div>
-                        <div class="d-flex mb-3">
-                            <img src="{% static 'img/news-100x100-1.jpg ' %}"
-                                style="width: 100px; height: 100px; object-fit: cover;">
-                            <div class="w-100 d-flex flex-column justify-content-center bg-light px-3"
-                                style="height: 100px;">
-                                <div class="mb-1" style="font-size: 13px;">
-                                    <a href="">Technology</a>
-                                    <span class="px-1">/</span>
-                                    <span>January 01, 2045</span>
-                                </div>
-                                <a class="h6 m-0" href="">Lorem ipsum dolor sit amet consec adipis elit</a>
-                            </div>
-                        </div>
+                        {% endfor %}
                     </div>
                     <div class="col-lg-6">
                         <div class="position-relative mb-3">
-                            <img class="img-fluid w-100" src="{% static 'img/news-500x280-6.jpg ' %}"
-                                style="object-fit: cover;">
+                            <img class="img-fluid w-100" src="{{enter_1.image_1.url}}" style="object-fit: cover;">
                             <div class="overlay position-relative bg-light">
                                 <div class="mb-2" style="font-size: 14px;">
-                                    <a href="">Technology</a>
+                                    <a href="{% url 'main:category' enter_1.category.slug %}">
+                                        {{enter_1.category}}
+                                    </a>
                                     <span class="px-1">/</span>
-                                    <span>January 01, 2045</span>
+                                    <span>
+                                        {{enter_1.date_created|date}}
+                                    </span>
                                 </div>
-                                <a class="h4" href="">Est stet amet ipsum stet clita rebum duo</a>
-                                <p class="m-0">Rebum dolore duo et vero ipsum clita, est ea sed duo diam ipsum, clita at
-                                    justo, lorem amet vero eos sed sit...</p>
+                                <a class="h4" href="">
+                                    {{enter_1.title}}
+                                </a>
+                                <p class="m-0">
+                                    {{enter_1.excerpt|slice:120}}
+                                </p>
                             </div>
                         </div>
+                        
+                        {% for po in cele %}
                         <div class="d-flex mb-3">
-                            <img src="{% static 'img/news-100x100-2.jpg ' %}"
-                                style="width: 100px; height: 100px; object-fit: cover;">
-                            <div class="w-100 d-flex flex-column justify-content-center bg-light px-3"
-                                style="height: 100px;">
+                            <img src="{{po.image_1.url}}" style="width: 100px; height: 100px; object-fit: cover;">
+                            <div class="w-100 d-flex flex-column justify-content-center bg-light px-3" style="height: 100px;">
                                 <div class="mb-1" style="font-size: 13px;">
-                                    <a href="">Technology</a>
+                                    <a href="{% url 'main:category' po.category.slug %}">
+                                        {{po.category}}
+                                    </a>
                                     <span class="px-1">/</span>
-                                    <span>January 01, 2045</span>
+                                    <span>{{po.date_created|date}}</span>
                                 </div>
-                                <a class="h6 m-0" href="">Lorem ipsum dolor sit amet consec adipis elit</a>
+                                <a class="h6 m-0" href="">{{po.title}}</a>
                             </div>
                         </div>
-                        <div class="d-flex mb-3">
-                            <img src="{% static 'img/news-100x100-3.jpg ' %}"
-                                style="width: 100px; height: 100px; object-fit: cover;">
-                            <div class="w-100 d-flex flex-column justify-content-center bg-light px-3"
-                                style="height: 100px;">
-                                <div class="mb-1" style="font-size: 13px;">
-                                    <a href="">Technology</a>
-                                    <span class="px-1">/</span>
-                                    <span>January 01, 2045</span>
-                                </div>
-                                <a class="h6 m-0" href="">Lorem ipsum dolor sit amet consec adipis elit</a>
-                            </div>
-                        </div>
+                        {% endfor %}
+
                     </div>
                 </div>
             </div>
