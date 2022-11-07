@@ -137,8 +137,6 @@
         </div>
     </div>
 </div>
-</div>
-</div>
 <!-- Category News Slider End -->
 <!-- News With Sidebar Start -->
 <div class="container-fluid py-3">
@@ -154,8 +152,7 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="position-relative mb-3">
-                            <img class="img-fluid w-100" src="{{first.image_1.url}}"
-                                style="object-fit: cover;">
+                            <img class="img-fluid w-100" src="{{first.image_1.url}}" style="object-fit: cover;">
                             <div class="overlay position-relative bg-light">
                                 <div class="mb-2" style="font-size: 14px;">
                                     <a href="{% url 'main:category' first.category.slug %}">{{first.category}}</a>
@@ -172,50 +169,52 @@
                                 </p>
                             </div>
                         </div>
-                        
+
                         {% for po in all %}
-                            <div class="d-flex mb-3">
-                                <img src="{{po.image_1.url}}" style="width: 100px; height: 100%; object-fit: cover;">
-                                <div class="w-100 d-flex flex-column justify-content-center bg-light px-3 py-2" style="height: 100%;">
-                                    <div class="mb-1" style="font-size: 13px;">
-                                        <a href="{% url 'main:category' po.category.slug %}">
-                                            {{po.category}}
-                                        </a>
-                                        <span class="px-1">/</span>
-                                        <span>
-                                            {{po.date_created|date}}
-                                        </span>
-                                    </div>
-                                    <a class="h6 m-0" href="{% url 'main:post' po.slug %}">
-                                        {{po.title}}
+                        <div class="d-flex mb-3">
+                            <img src="{{po.image_1.url}}" style="width: 100px; height: 100%; object-fit: cover;">
+                            <div class="w-100 d-flex flex-column justify-content-center bg-light px-3 py-2"
+                                style="height: 100%;">
+                                <div class="mb-1" style="font-size: 13px;">
+                                    <a href="{% url 'main:category' po.category.slug %}">
+                                        {{po.category}}
                                     </a>
+                                    <span class="px-1">/</span>
+                                    <span>
+                                        {{po.date_created|date}}
+                                    </span>
                                 </div>
+                                <a class="h6 m-0" href="{% url 'main:post' po.slug %}">
+                                    {{po.title}}
+                                </a>
                             </div>
+                        </div>
                         {% endfor %}
                     </div>
                     <div class="col-lg-6">
-                    <div class="position-relative mb-3">
-                        <img class="img-fluid w-100" src="{{last.image_1.url}}" style="object-fit: cover;">
-                        <div class="overlay position-relative bg-light">
-                            <div class="mb-2" style="font-size: 14px;">
-                                <a href="{% url 'main:category' last.category.slug %}">{{last.category}}</a>
-                                <span class="px-1">/</span>
-                                <span>
-                                    {{last.date_created|date}}
-                                </span>
+                        <div class="position-relative mb-3">
+                            <img class="img-fluid w-100" src="{{last.image_1.url}}" style="object-fit: cover;">
+                            <div class="overlay position-relative bg-light">
+                                <div class="mb-2" style="font-size: 14px;">
+                                    <a href="{% url 'main:category' last.category.slug %}">{{last.category}}</a>
+                                    <span class="px-1">/</span>
+                                    <span>
+                                        {{last.date_created|date}}
+                                    </span>
+                                </div>
+                                <a class="h4" href="{% url 'main:post' last.slug %}">
+                                    {{last.title}}
+                                </a>
+                                <p class="m-0">
+                                    {{last.excerpt|slice:100}}
+                                </p>
                             </div>
-                            <a class="h4" href="{% url 'main:post' last.slug %}">
-                                {{last.title}}
-                            </a>
-                            <p class="m-0">
-                                {{last.excerpt|slice:100}}
-                            </p>
                         </div>
-                    </div>
                         {% for po in post %}
                         <div class="d-flex mb-3">
                             <img src="{{po.image_1.url}}" style="width: 100px; height: 100%; object-fit: cover;">
-                            <div class="w-100 d-flex flex-column justify-content-center bg-light px-3 py-2" style="height: 100%;">
+                            <div class="w-100 d-flex flex-column justify-content-center bg-light px-3 py-2"
+                                style="height: 100%;">
                                 <div class="mb-1" style="font-size: 13px;">
                                     <a href="{% url 'main:category' po.category.slug %}">
                                         {{po.category}}
@@ -243,8 +242,8 @@
                         </div>
                     </div>
                     <div class="col-lg-6">
-                        
-                        
+
+
                         <div class="position-relative mb-3">
                             <img class="img-fluid w-100" src="{{cele_1.image_1.url}}" style="object-fit: cover;">
                             <div class="overlay position-relative bg-light">
@@ -265,12 +264,13 @@
                                 </p>
                             </div>
                         </div>
-                   
-                        
+
+
                         {% for po in enter %}
                         <div class="d-flex mb-3">
                             <img src="{{po.image_1.url}}" style="width: 100px; height: 100%; object-fit: cover;">
-                            <div class="w-100 d-flex flex-column justify-content-center bg-light px-3 my-3" style="height: 100%;">
+                            <div class="w-100 d-flex flex-column justify-content-center bg-light px-3 my-3"
+                                style="height: 100%;">
                                 <div class="mb-1" style="font-size: 13px;">
                                     <a href="{% url 'main:category' po.category.slug %}">
                                         {{po.category}}
@@ -304,11 +304,12 @@
                                 </p>
                             </div>
                         </div>
-                        
+
                         {% for po in cele %}
                         <div class="d-flex mb-3">
                             <img src="{{po.image_1.url}}" style="width: 100px; height: 100px; object-fit: cover;">
-                            <div class="w-100 d-flex flex-column justify-content-center bg-light px-3" style="height: 100px;">
+                            <div class="w-100 d-flex flex-column justify-content-center bg-light px-3"
+                                style="height: 100px;">
                                 <div class="mb-1" style="font-size: 13px;">
                                     <a href="{% url 'main:category' po.category.slug %}">
                                         {{po.category}}
@@ -325,7 +326,7 @@
                 </div>
             </div>
             {% include 'sidebar.html' %}
-            
+
         </div>
     </div>
 </div>
