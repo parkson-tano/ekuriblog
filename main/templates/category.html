@@ -64,9 +64,9 @@
                         
                         {% for po in post %}
                             <div class="col-lg-6">
-                            <div class="d-flex mb-3">
-                                <img src="{{po.image_1.url}}" style="width: 100px; height: 100px; object-fit: cover;">
-                                <div class="w-100 d-flex flex-column justify-content-center bg-light px-3" style="height: 100px;">
+                            <div class="d-flex mb-3 h-100">
+                                <img src="{{po.image_1.url}}" style="width: 100px; height: 100%; object-fit: cover;">
+                                <div class="w-100 d-flex flex-column justify-content-center bg-light px-3" style="height: 100%;">
                                     <div class="mb-1" style="font-size: 13px;">
                                         <a href="{% url 'main:category' cat.slug %}">
                                             {{po.category}}
@@ -76,7 +76,7 @@
                                             {{po.date_created|date}}
                                         </span>
                                     </div>
-                                    <a class="h6 m-0" href="{% url 'main:post' po.slug %}">
+                                    <a class="h6 " href="{% url 'main:post' po.slug %}">
                                         {{po.title}}
                                     </a>
                                 </div>

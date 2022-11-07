@@ -99,3 +99,7 @@ class ContactUs(models.Model):
     phone_number = models.CharField(max_length=500)
     email = models.EmailField()
     address = models.CharField(max_length=500)
+
+
+class NewsLetter(models.Model):
+    email = models.EmailField(null=True, blank=True)
