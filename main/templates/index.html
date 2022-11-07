@@ -140,8 +140,6 @@
 </div>
 </div>
 <!-- Category News Slider End -->
-
-
 <!-- News With Sidebar Start -->
 <div class="container-fluid py-3">
     <div class="container">
@@ -166,7 +164,7 @@
                                         {{first.date_created|date}}
                                     </span>
                                 </div>
-                                <a class="h4" href="">
+                                <a class="h4" href="{% url 'main:post' first.slug %}">
                                     {{first.title}}
                                 </a>
                                 <p class="m-0">
@@ -206,7 +204,7 @@
                                     {{last.date_created|date}}
                                 </span>
                             </div>
-                            <a class="h4" href="">
+                            <a class="h4" href="{% url 'main:post' last.slug %}">
                                 {{last.title}}
                             </a>
                             <p class="m-0">
@@ -259,7 +257,7 @@
                                         {{cele_1.date_created|date}}
                                     </span>
                                 </div>
-                                <a class="h4" href="">
+                                <a class="h4" href="{% url 'main:post' cele_1.slug %}">
                                     {{cele_1.title}}
                                 </a>
                                 <p class="m-0">
@@ -280,7 +278,7 @@
                                     <span class="px-1">/</span>
                                     <span>{{po.date_created|date}}</span>
                                 </div>
-                                <a class="h6 m-0" href="">{{po.title}}</a>
+                                <a class="h6 m-0" href="{% url 'main:post' po.slug %}">{{po.title}}</a>
                             </div>
                         </div>
                         {% endfor %}
@@ -298,7 +296,7 @@
                                         {{enter_1.date_created|date}}
                                     </span>
                                 </div>
-                                <a class="h4" href="">
+                                <a class="h4" href="{% url 'main:post' enter_1.slug %}">
                                     {{enter_1.title}}
                                 </a>
                                 <p class="m-0">
@@ -318,7 +316,7 @@
                                     <span class="px-1">/</span>
                                     <span>{{po.date_created|date}}</span>
                                 </div>
-                                <a class="h6 m-0" href="">{{po.title}}</a>
+                                <a class="h6 m-0" href="{% url 'main:post' po.slug %}">{{po.title}}</a>
                             </div>
                         </div>
                         {% endfor %}
