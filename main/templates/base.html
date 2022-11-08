@@ -34,7 +34,6 @@
 {% block style %}{% endblock style %}
 
 <body>
-    <!-- Topbar Start -->
     <div class="container-fluid">
         <div class="row align-items-center bg-light px-lg-5">
             <div class="col-12 col-md-8">
@@ -200,11 +199,12 @@
     {% endblock script %}
     <!-- Template Javascript -->
     <script src="{% static 'js/main.js' %} "></script>
-    <script>
-        FastCommentsUI(document.getElementById('fastcomments-widget'), {
-            tenantId: 'demo'
-        });
-    </script>
+</script>
+<script>
+    window.FastCommentsUI(document.getElementById('fastcomments-widget'), {
+        "tenantId": "7zQ5F42Z70q8"
+    });
+</script>
     <script>
         $(".content").floatingSocialShare({
             buttons: [

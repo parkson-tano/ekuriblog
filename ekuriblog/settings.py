@@ -38,8 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main',
-    'tinymce',
-    'ckeditor',
+     'django_quill',
     'crispy_forms',
     'django_social_share',
     
