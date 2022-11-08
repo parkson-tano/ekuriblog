@@ -78,19 +78,3 @@
 </div>
 <!-- News With Sidebar End -->
 {% endblock content %}
-
-{% block script %}
-<script>
-    $(".content").floatingSocialShare({
-        buttons: [
-            "facebook", "pinterest", "telegram", "twitter", "whatsapp"
-        ],
-        text: { 'default': 'share with: ', 'facebook': 'share with facebook' },
-        text_title_case: true,
-        popup: false,
-        place: "content-left",
-        description: '{{post.excerpt}}'
-        // url: "https://github.com/ozdemirburak/jquery-floating-social-share"
-    });
-</script>
-{% endblock script %}

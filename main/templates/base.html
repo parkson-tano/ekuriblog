@@ -103,10 +103,12 @@
         </nav>
     </div>
     <!-- Navbar End -->
-
-    {% block content %}
+<div class="container content">
+     {% block content %}
 
     {% endblock content %}
+   
+</div>
 
 
     <!-- Footer Start -->
@@ -201,6 +203,19 @@
     <script>
         FastCommentsUI(document.getElementById('fastcomments-widget'), {
             tenantId: 'demo'
+        });
+    </script>
+    <script>
+        $(".content").floatingSocialShare({
+            buttons: [
+                "facebook", "pinterest", "telegram", "twitter", "whatsapp"
+            ],
+            text: { 'default': 'share with: ', 'facebook': 'share with facebook' },
+            text_title_case: true,
+            popup: false,
+            place: "content-left",
+            description: '{{post.excerpt}}'
+            // url: "https://github.com/ozdemirburak/jquery-floating-social-share"
         });
     </script>
 
