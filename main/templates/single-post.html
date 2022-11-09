@@ -1,7 +1,4 @@
-{% extends 'base.html' %}
-{% load static %}
-
-{% block ogmeta %}
+{% extends 'base.html' %} {% load static %} {% block ogmeta %}
 <meta property="og:site_name" content="Ekuri's Blog" />
 <meta property="og:title" content="{{post.title}}" />
 <meta property="og:description" content="{{post.excerpt}}" />
@@ -14,80 +11,72 @@
 <meta property="og:image:secure_url" content="{{post.image_1.url}}" />
 <meta property="og:image:width" content="1280" />
 <meta property="og:image:height" content="640" />
-{% endblock ogmeta %}
-
-{% block style %}
+{% endblock ogmeta %} {% block style %}
 <style>
-@media only screen and (max-width: 600px) {
-img {
-  width: 80vw;
-  height: 300px;
-  object-fit: cover;
-}
-}
+  @media only screen and (max-width: 600px) {
+    img {
+      width: 95vw;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+.tit {
+                width:100%;
+                height:auto;
+            }
+            img {
+                width:100%;
+                height:100%;
+                object-fit:cover;
+            }
 </style>
 
-{% endblock style %}
-    
-{% block content %}
+{% endblock style %} {% block content %}
 <!-- Breadcrumb Start -->
 <div class="container-fluid">
-    <div class="container">
-        <nav class="breadcrumb bg-transparent m-0 p-0">
-            <a class="breadcrumb-item" href="{% url 'main:index' %}">Home</a>
-            <a class="breadcrumb-item" href="#">Category</a>
-            <span class="breadcrumb-item active">
-                {{post.category.name}}
-            </span>
-        </nav>
-    </div>
+  <div class="container">
+    <nav class="breadcrumb bg-transparent m-0 p-0">
+      <a class="breadcrumb-item" href="{% url 'main:index' %}">Home</a>
+      <a class="breadcrumb-item" href="#">Category</a>
+      <span class="breadcrumb-item active"> {{post.category.name}} </span>
+    </nav>
+  </div>
 </div>
 <!-- Breadcrumb End -->
 
-
 <!-- News With Sidebar Start -->
 <div class="container-fluid py-3">
-    <div class="container">
-        <div class="row content" >
-            <div class="col-lg-8">
-
-                <div class="row">
-
-                    <div class="col-lg-9">
-                        <div class="mb-3">
-                            <img src="{{post.image_1.url}}">
-
-                            <div class="mb-1" style="font-size: 13px;">
-                                <a href="">
-                                    {{post.category}}
-                                </a>
-                                <span class="px-1">/</span>
-                                <span>
-                                    {{post.date_created|date}}
-                                </span>
-                            </div>
-                            <a class="h6 m-0" href="{% url 'main:post' post.slug %}">
-                                {{post.title}}
-                            </a>
-                            <div class="w-100" style="width: 100vw;">
-                                {{post.excerpt}}
-                                <p class="text-wrap" style="width: 6rem;">
-                                    {{post.content.html|safe}}
-
-                                </p>
-                                <div id="fastcomments-widget"></div>
-                            </div>
-
-                        </div>
-                    </div>
-
-
+    <div class="row content">
+      <div class="col-lg-8">
+        <div class="row">
+          <div class="col-lg-10 mx-3">
+            <div class="mb-3">
+                <div class="tit">
+                <img src="{{post.image_1.url}}" class="image_1" />    
                 </div>
+              
 
+              <div class="mb-1" style="font-size: 13px">
+                <a href=""> {{post.category}} </a>
+                <span class="px-1">/</span>
+                <span> {{post.date_created|date}} </span>
+              </div>
+              <a class="h6 m-0" href="{% url 'main:post' post.slug %}">
+                {{post.title}}
+              </a>
+              <div class="w-100" style="width: 100vw">
+                {{post.excerpt}}
+                <p class="text-wrap" style="width: 6rem">
+                  {{post.content.html|safe}}
+                </p>
+                <div id="fastcomments-widget"></div>
+              </div>
             </div>
-
-            {% include 'sidebar.html' %}
+          </div>
         </div>
+      </div>
+
+      {% include 'sidebar.html' %}
     </div>
 </div>
 <!-- News With Sidebar End -->
