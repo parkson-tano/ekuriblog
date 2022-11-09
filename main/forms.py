@@ -1,7 +1,6 @@
 from django import forms
 from .models import Comment, Post, Contact
 
-
 class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
@@ -33,9 +32,10 @@ class CommentForm(forms.ModelForm):
 
 
 class PostForm(forms.ModelForm):
-    class Meta:
-        model = Post
-        fields = "__all__"
+	class Meta:
+		model = Post
+		fields = "__all__"
+
 
 
 class AuthenticationForm(forms.Form):
