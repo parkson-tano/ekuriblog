@@ -98,6 +98,9 @@ class SearchView(TemplateView):
 		context['results'] = results 
 		return context
 
+class ContactView(TemplateView):
+    template_name = 'contact.html'
+
 class AdminPostCreateView(CreateView):
     template_name = 'admin/create.html'
     model = Post
