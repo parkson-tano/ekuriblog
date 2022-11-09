@@ -38,9 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main',
-     'django_quill',
+    'ckeditor',
     'crispy_forms',
-    'django_social_share',
+
     
 ]
 
@@ -163,3 +163,4 @@ LOGOUT_REDIRECT_URL = "/accounts/login/"
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 DATA_UPLOAD_MAX_MEMORY_SIZE = None
+

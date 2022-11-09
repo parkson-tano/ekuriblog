@@ -3,7 +3,7 @@ import sys
 from django.contrib.auth.models import User
 from django.utils import timezone
 from autoslug import AutoSlugField
-from django_quill.fields import QuillField
+from ckeditor.fields import RichTextField
 from autoslug import AutoSlugField
 from PIL import Image
 from io import BytesIO
@@ -52,7 +52,7 @@ class Post(models.Model):
     slug = AutoSlugField(populate_from='title')
     image_1 = models.ImageField(null=True)
     excerpt = models.TextField(null=True, blank=True)
-    content = QuillField()
+    content = RichTextField(null=True, blank=True)
     date_created = models.DateTimeField(auto_now_add=True)
     view_count = models.PositiveIntegerField(default=0)
     status = models.CharField(max_length=30, choices=sta, default='published')
