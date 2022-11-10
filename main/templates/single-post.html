@@ -1,7 +1,7 @@
 {% extends 'base.html' %} {% load static %} {% block ogmeta %}
 <meta property="og:site_name" content="Ekuri's Blog" />
 <meta property="og:title" content="{{post.title}}" />
-<meta property="og:description" content="{{post.excerpt}}" />
+<meta property="og:description" content="{{post.excerpt|safe}}" />
 <meta property="og:url" content="{{post.get_absolute_url}}" />
 <meta property="og:type" content="article" />
 <meta property="article:publisher" content="https://www.ekurisblog.com" />
@@ -66,7 +66,7 @@
                 {{post.title}}
               </a>
               <div class="w-100" style="width: 100vw">
-                {{post.excerpt}}
+                {{post.excerpt|safe}}
                 <p class="text-wrap" style="width: 6rem">
                   {{post.content|safe}}
                 </p>
