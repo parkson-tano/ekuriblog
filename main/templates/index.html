@@ -170,7 +170,7 @@
                                     {{first.title}}
                                 </a>
                                 <p class="m-0">
-                                    {{first.excerpt|slice:100}}
+                                    {{first.excerpt|safe|slice:100}}
                                 </p>
                             </div>
                         </div>
@@ -211,7 +211,7 @@
                                     {{last.title}}
                                 </a>
                                 <p class="m-0">
-                                    {{last.excerpt|slice:100}}
+                                    {{last.excerpt|safe|slice:100}}
                                 </p>
                             </div>
                         </div>
@@ -265,7 +265,7 @@
                                     {{cele_1.title}}
                                 </a>
                                 <p class="m-0">
-                                    {{cele_1.excerpt|slice:120}}
+                                    {{cele_1.excerpt|safe|slice:120}}
                                 </p>
                             </div>
                         </div>
@@ -305,7 +305,7 @@
                                     {{enter_1.title}}
                                 </a>
                                 <p class="m-0">
-                                    {{enter_1.excerpt|slice:120}}
+                                    {{enter_1.excerpt|safe|slice:120}}
                                 </p>
                             </div>
                         </div>
