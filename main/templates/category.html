@@ -47,7 +47,7 @@
                                             {{po.date_created|date}}
                                         </span>
                                     </div>
-                                    <a class="h4" href="">
+                                    <a class="h4" href="{% url 'main:post' po.slug %}">
                                         {{po.title}}
                                     </a>
                                     <p class="m-0">
