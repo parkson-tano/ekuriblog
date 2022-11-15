@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'main',
     'crispy_forms',
+    'ckeditor',
+    'ckeditor_uploader',
 
     
 ]
@@ -163,3 +165,4 @@ LOGOUT_REDIRECT_URL = "/accounts/login/"
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 DATA_UPLOAD_MAX_MEMORY_SIZE = None
 
+CKEDITOR_UPLOAD_PATH ='uploads/'

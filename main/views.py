@@ -118,6 +118,7 @@ class AdminPostCreateView(CreateView):
 
     def get_queryset(self):
         author = self.request.user
+        content = self.request.GET('editor_content')
         return super().get_queryset()
 
     def form_valid(self, form):

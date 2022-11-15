@@ -3,6 +3,8 @@ import sys
 from django.contrib.auth.models import User
 from django.utils import timezone
 from autoslug import AutoSlugField
+from ckeditor.fields import RichTextField
+from ckeditor_uploader.fields import RichTextUploadingField
 from PIL import Image
 from io import BytesIO
 from django.core.files import File
@@ -51,7 +53,7 @@ class Post(models.Model):
     image_1 = models.ImageField(null=True)
     excerpt = models.TextField(null=True, blank=True)
 
-    content = models.TextField()
+    content = RichTextUploadingField(config_name='portal_config')
     date_created = models.DateTimeField(auto_now_add=True)
     view_count = models.PositiveIntegerField(default=0)
     status = models.CharField(max_length=30, choices=sta, default='published')
