@@ -53,7 +53,7 @@ class Post(models.Model):
     image_1 = models.ImageField(null=True)
     excerpt = models.TextField(null=True, blank=True)
 
-    content = RichTextUploadingField(config_name='portal_config')
+    content = RichTextUploadingField()
     date_created = models.DateTimeField(auto_now_add=True)
     view_count = models.PositiveIntegerField(default=0)
     status = models.CharField(max_length=30, choices=sta, default='published')

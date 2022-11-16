@@ -15,7 +15,7 @@
 <style>
   @media only screen and (max-width: 600px) {
     img {
-      width: 95vw !important;
+      width: 90vw !important;
       height: 100%;
       object-fit: cover;
     }
@@ -30,23 +30,17 @@
     }
 
     .image_1 {
-      width: % !important;
-      ;
+      width: 100% !important;
       height: 100%;
       object-fit: contain;
     }
 
   }
 
-  .image_1 {
-    width: % !important;
-    height: 100%;
-    object-fit: contain;
-  }
 
-  img {
-    width: 90vw !important;
-    height: 100%;
+  .tit>img {
+    width: 100% !important;
+    height: 100% !important;
     object-fit: contain;
   }
 
@@ -86,8 +80,6 @@
               <div class="content">
                 <img src="{{post.image_1.url}}" class="image_1" />
               </div>
-
-
               <div class="mb-1 content" style="font-size: 13px">
                 <a href=""> {{post.category}} </a>
                 <span class="px-1">/</span>
@@ -96,9 +88,9 @@
               <a class="h6 m-0" href="{% url 'main:post' post.slug %}">
                 {{post.title}}
               </a>
-              <div class="w-100" style="width: 100vw">
+              <div class="tit">
                 {{post.excerpt|safe}}
-                <p class="text-wrap" style="width: 100vw">
+                <p class="text-wrap">
                   {{post.content|safe}}
                 </p>
                 <div id="fastcomments-widget"></div>

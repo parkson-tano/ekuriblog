@@ -82,23 +82,23 @@ WSGI_APPLICATION = 'ekuriblog.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-
 # DATABASES = {
-# 'default': {
-# 'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#     'NAME': 'postgres',
-#     'USER': 'postgres',
-#     'PASSWORD': 'danielTano123@',
-#     'HOST': 'db.xtvlwcvbextlotflhjra.supabase.co',
-# 'PORT' : '5432',
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
 # }
-# }
+
+DATABASES = {
+'default': {
+'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    'NAME': 'postgres',
+    'USER': 'postgres',
+    'PASSWORD': 'danielTano123@',
+    'HOST': 'db.dksknhwdmljdyydlkvqg.supabase.co',
+'PORT' : '5432',
+}
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -166,3 +166,14 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 DATA_UPLOAD_MAX_MEMORY_SIZE = None
 
 CKEDITOR_UPLOAD_PATH ='uploads/'
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'full',
+        'extraPlugins': ','.join(
+            [
+                'youtube',
+            ]
+        ),
+    },
+}
