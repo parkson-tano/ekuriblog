@@ -41,8 +41,6 @@ INSTALLED_APPS = [
     'crispy_forms',
     'ckeditor',
     'ckeditor_uploader',
-
-    
 ]
 
 MIDDLEWARE = [
@@ -91,12 +89,12 @@ WSGI_APPLICATION = 'ekuriblog.wsgi.application'
 
 DATABASES = {
 'default': {
-'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    'ENGINE': 'django.db.backends.postgresql_psycopg2',
     'NAME': 'postgres',
     'USER': 'postgres',
     'PASSWORD': 'danielTano123@',
     'HOST': 'db.dksknhwdmljdyydlkvqg.supabase.co',
-'PORT' : '5432',
+    'PORT' : '5432',
 }
 }
 
@@ -129,7 +127,6 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
@@ -177,3 +174,6 @@ CKEDITOR_CONFIGS = {
         ),
     },
 }
+
+
+
